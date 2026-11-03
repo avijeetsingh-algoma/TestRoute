@@ -1,0 +1,25 @@
+# config/sample_run.yaml
+# Defaults for a single run started by run.bat (spec Section 12, FB9).
+#
+# run.bat [path_to_py] [function_name] [condition]
+# Any argument given on the command line replaces the default below.
+# Experiment-wide settings (quality target, mutation, test runner limits) are
+# taken from experiment_main.yaml through "extends".
+
+extends: experiment_main.yaml
+
+name: sample
+
+# Each run.bat invocation writes to results/sample/<timestamp>/, including a
+# full component trace (spec Section 13).
+results_dir: results/sample
+
+# Python file containing the function under test, relative to the project root.
+input_file: examples/input/sample_input.py
+# Function under test. Empty means "the only public top-level function in
+# input_file"; run.bat fails with a clear message if that is ambiguous.
+function_name: ""
+# Default condition: cloud model with all three feedback blocks.
+condition: C-F4
+# Trial number, which is also the Ollama seed for local conditions.
+trial: 1

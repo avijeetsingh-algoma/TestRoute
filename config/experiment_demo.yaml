@@ -1,0 +1,28 @@
+# config/experiment_demo.yaml
+# Short demonstration experiment run by run_experiment_demo.bat (spec
+# Section 12). Target: under 10 minutes and a few cents of API cost.
+#
+# "extends" loads experiment_main.yaml first; the keys below replace the
+# matching keys from that file. Nested blocks are merged key by key.
+
+extends: experiment_main.yaml
+
+name: demo
+results_dir: results/demo
+
+subjects:
+  # Two main subjects: the first one in the easy band and the first one in the
+  # hard band of experiments/subjects/selection.csv (spec Section 12).
+  group: demo
+  bands: [easy, hard]
+
+trials: 1
+
+# Conditions that always run live against DeepSeek.
+live_conditions: [C-F0, C-F4]
+
+# Conditions that need the local model. They run live if Ollama is reachable;
+# otherwise they are replayed from replay_from with a printed notice, and every
+# replayed record is labelled provider "replay" (spec Sections 3 and 7).
+local_conditions: [L-F4, ESC]
+replay_from: results/main

@@ -1,0 +1,100 @@
+# config/experiment_main.yaml
+# Settings for the main experiment, read by the experiment runner (C1), the
+# controller (C10), the sandbox and test runner (C8) and the mutation
+# subsystem (C9).
+#
+# Implements: spec Sections 2, 6, 8 and 9; FB1 (condition tiers), FB3
+# (timeouts), FB4 (mutation cost controls), FB11 (feedback and held-out split).
+#
+# experiment_pilot.yaml and experiment_demo.yaml start from this file through
+# their "extends" key and override only what they list. Values here that come
+# from locked spec Sections 2, 6.7 or 9 must not change without approval.
+
+name: main
+
+# Where all records, artifacts and analysis outputs of this experiment go,
+# relative to the project root (spec Section 10).
+results_dir: results/main
+
+subjects:
+  # Which subject group from experiments/subjects/selection.csv to run:
+  # "main" = the 30 main functions, "pilot" = the 5 pilot functions
+  # (spec Section 9.1).
+  group: main
+
+# Trials per function and condition (spec Section 2).
+trials: 3
+
+# Seed used to shuffle the run plan written to experiments/run_plan_main.csv
+# (spec Section 9.4) and to draw the subjects (spec Section 9.1).
+plan_seed: 20261005
+
+# Condition tiers (spec Section 2, FB1). The runner's --tier option selects one
+# of these lists. Tier 2 is run only after Tier 1 is complete, Tier 3 only
+# after both (pilot rule 9.5.4).
+tiers:
+  tier1: [L-F0, C-F0, L-F4, C-F4, ESC]
+  tier2: [C-F1, C-F2, C-F3]
+  tier3: [L-F1, L-F2, L-F3]
+
+# Default tiers when no --tier or --conditions option is given.
+default_tiers: [tier1]
+
+# Quality target the controller checks after each attempt, on feedback-visible
+# data only (spec Section 9.3). PROVISIONAL until frozen after the pilot.
+quality_target:
+  # F1 to F4: every test in the suite passes on the reference implementation.
+  all_tests_pass: true
+  # F2 and F4: minimum line and branch coverage in percent.
+  min_line_coverage: 90
+  min_branch_coverage: 90
+  # F3 and F4: minimum strict feedback-set mutation score in percent.
+  min_feedback_strict_ms: 80
+
+mutation:
+  # Maximum scoring mutants per function after TCE, dedupe and equivalence
+  # removal; a seeded sample stratified by operator family is kept
+  # (spec Section 6.3). Pilot rule 9.5.2 may lower this to 40.
+  mutant_cap: 60
+  # Seed for the cap sample.
+  cap_seed: 7
+  # Seed and ratio for the 50/50 feedback and held-out split, stratified by
+  # operator family (spec Section 6.5, FB11). Never changed after creation.
+  split_seed: 7
+  feedback_fraction: 0.5
+  # Parallel mutant workers. "auto" means max(1, os.cpu_count() // 2)
+  # (spec Section 6.6, FB4). An integer overrides it.
+  workers: auto
+  # Mutant time limit = max(min_time_limit_s, baseline_multiplier x baseline
+  # run time of the filtered suite on the original module) (spec Section 6.6).
+  min_time_limit_s: 3
+  baseline_multiplier: 5
+  # A mutant that hits the limit is rerun once, alone, with this multiplier on
+  # the limit before it is labelled TIMEOUT (spec Section 6.6, FB3).
+  timeout_rerun_multiplier: 2
+  # Seed for choosing which surviving feedback mutants appear in the T2 prompt.
+  prompt_mutant_seed: 7
+  # At most this many surviving feedback mutants are shown per prompt
+  # (spec Section 7). Held-out and TIMEOUT mutants are never shown.
+  max_mutants_in_prompt: 5
+
+test_runner:
+  # pytest-timeout limit per generated test, in seconds (spec C8).
+  per_test_timeout_s: 5
+  # Wall clock limit for one whole suite run, in seconds (spec C8).
+  per_suite_timeout_s: 60
+  # The final filtered suite is rerun this many times to detect flaky tests
+  # (validation check V6, spec Sections 8 and C10).
+  stability_reruns: 3
+
+runner:
+  # Local and ESC conditions use one worker so local timings stay clean;
+  # cloud-only conditions may use more with --workers (spec Section 9.4).
+  local_workers: 1
+  max_cloud_workers: 2
+  # INFRA and TOOL failures re-queue a run at most this many times (spec C1).
+  max_requeues: 3
+
+# Pilot rule 9.5.1: if projected Tier 1 local compute exceeds this many hours,
+# switch the local model to the fallback (spec Section 9.5).
+local_compute_budget_hours: 16

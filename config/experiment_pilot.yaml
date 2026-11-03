@@ -1,0 +1,23 @@
+# config/experiment_pilot.yaml
+# Pilot experiment settings (spec Section 9.5). Used to measure call, mutation
+# and run times, project the cost of the main experiment, and apply the locked
+# pilot decision rules before the design is frozen.
+#
+# "extends" loads experiment_main.yaml first; the keys below replace the
+# matching keys from that file. Nested blocks (for example quality_target)
+# are merged key by key, so only the listed keys change.
+
+extends: experiment_main.yaml
+
+name: pilot
+results_dir: results/pilot
+
+subjects:
+  # The 5 pilot functions drawn in spec Section 9.1, never used in main runs.
+  group: pilot
+
+# One trial per function and condition (spec Section 9.5).
+trials: 1
+
+# The pilot runs every Tier 1 and Tier 2 condition (spec Section 9.5).
+default_tiers: [tier1, tier2]
