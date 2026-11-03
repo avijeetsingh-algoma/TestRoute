@@ -1,0 +1,14 @@
+# .gitattributes
+# Line ending rules for the TestRoute repository (spec rule 1.7).
+#
+# Text files are normalized to LF inside the repository and converted to the
+# platform default on checkout. Windows batch files are forced to CRLF on every
+# checkout because cmd.exe can misparse labels and GOTO targets in LF-only .bat
+# files. Binary formats are marked so git never rewrites their bytes.
+
+* text=auto
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.gz binary
+*.zip binary

@@ -1,0 +1,33 @@
+# .gitignore
+# Files that must never be committed (spec rules 1.3 and 1.4).
+
+# The only secret. .env holds DEEPSEEK_API_KEY and is created by setup.bat
+# from .env.example; it must never reach the repository or the submission ZIP.
+.env
+
+# Virtual environment and Python build or cache output, recreated by setup.bat.
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Per-machine outputs that the grader regenerates. results/main and
+# results/pilot are shipped data and stay tracked; only the folder
+# placeholders of results/sample and results/demo are tracked.
+results/run_all_*.log
+results/sample/*
+!results/sample/.gitkeep
+results/demo/*
+!results/demo/.gitkeep
+
+# Editor and OS clutter.
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
