@@ -1,0 +1,15 @@
+The module `{MODULE_NAME}.py` contains the following code:
+
+```python
+{SOURCE_CODE}
+```
+
+Write a pytest test file for the function `{ENTRY_POINT}`.
+
+Requirements:
+- Start with: from {MODULE_NAME} import {ENTRY_POINT}
+- Test normal behaviour, boundary values, and error cases that the code handles.
+- Every test function must assert a specific expected value or use pytest.raises.
+- Tests must be independent, deterministic, and fast. Do not use files, the network, randomness, or the system clock.
+- Use only pytest and the Python standard library.
+- Return the complete test file in one ```python block with no explanation.

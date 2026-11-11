@@ -1,0 +1,3 @@
+
+These tests failed or could not run. The module code is correct, so fix or remove them:
+{FAILURE_LINES}

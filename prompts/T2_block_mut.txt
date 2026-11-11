@@ -1,0 +1,3 @@
+
+The tests still pass when the module is changed in the following ways. Each change is a bug that the tests do not detect. Add or strengthen assertions so that at least one test fails for each change:
+{MUTANT_DIFFS}

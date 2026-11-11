@@ -1,0 +1,15 @@
+The module `{MODULE_NAME}.py` contains the following code:
+
+```python
+{SOURCE_CODE}
+```
+
+This is the current test file:
+
+```python
+{CURRENT_TESTS}
+```
+
+Problems found when the tests were run:
+{NOCODE_BLOCK}{EXEC_BLOCK}{COV_BLOCK}{MUT_BLOCK}
+Keep the tests that already pass. Return the complete revised test file in one ```python block with no explanation.
