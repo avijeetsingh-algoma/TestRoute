@@ -1,0 +1,74 @@
+# config/models.yaml
+# Model, sampling, retry and call budget settings for the LLM layer (C5) and
+# the router (C4).
+#
+# Implements: spec Section 2 (locked decisions), Section 7 (LLM layer),
+# FB6 (local and cloud are two specific models), FB12 (fixed model versions,
+# comparable budgets).
+#
+# Section 2 is LOCKED. Do not change a value here without the approval rule in
+# spec Section 15. The only sanctioned change is pilot rule 9.5.1, which swaps
+# local.model for local.fallback_model and is recorded in the pilot report.
+
+local:
+  # Provider module in src/testroute/llm/ that serves this model.
+  provider: ollama
+  # Ollama tag. The default tag is the 4-bit quantized build.
+  model: qwen2.5-coder:7b
+  # Used only if pilot rule 9.5.1 (local compute budget) triggers.
+  fallback_model: qwen2.5-coder:3b
+  # Context window in tokens. Prompts are shortened by C3 to fit this.
+  num_ctx: 8192
+  # How long Ollama keeps the model in memory between calls, so a run does
+  # not pay the model load time on every call.
+  keep_alive: 30m
+  # When true, the Ollama "seed" option is 1000 x trial + call number, so
+  # trial 1 uses seeds 1001 to 1004, trial 2 uses 2001 to 2004, and so on
+  # (spec Sections 2 and 3). Every run is reproducible, and every call gets a
+  # fresh sample: with one seed per trial, a repeated unchanged prompt
+  # returned the identical reply and wasted the local feedback budget.
+  seed_per_call: true
+  # Per request timeout in seconds (spec C5). Local generation is slower.
+  request_timeout_s: 180
+
+cloud:
+  provider: deepseek
+  # Model id sent to the OpenAI-compatible DeepSeek endpoint. The endpoint
+  # itself comes from DEEPSEEK_BASE_URL in .env.
+  model: deepseek-flash
+  # Thinking mode is the API default and must be off (spec Section 2) so the
+  # cost, latency and output format stay comparable with the local model.
+  # The provider sends extra_body={"thinking": {"type": "disabled"}}.
+  thinking: disabled
+  # DeepSeek does not support a sampling seed, so none is sent.
+  send_seed: false
+  # Per request timeout in seconds (spec C5).
+  request_timeout_s: 60
+
+sampling:
+  # Identical for both models so the comparison is about the model only.
+  temperature: 0.2
+  # Upper limit on generated tokens per call.
+  max_output_tokens: 2048
+  # Every call is a fresh conversation with no chat history; feedback reaches
+  # the model only through the T2 prompt (spec Section 2).
+  stateless: true
+
+retries:
+  # Transient errors (timeout, connection error, HTTP 5xx, HTTP 429) are
+  # retried this many times before the call is classified INFRA (spec C5).
+  max_retries: 3
+  # Wait before retry k (k = 1, 2, 3) is backoff_base_s * backoff_factor^(k-1)
+  # seconds, unless a 429 response carries Retry-After, which is honored.
+  backoff_base_s: 2
+  backoff_factor: 2
+
+call_budget:
+  # LLM calls allowed per run (spec Section 2). Identical across models (FB12).
+  F0: 1
+  # F1 to F4 and ESC.
+  feedback: 4
+  # ESC policy: calls 1 and 2 go to the local model, calls 3 and 4 go to the
+  # cloud model only if the quality target is still not met (spec C4).
+  esc_local_calls: 2
+  esc_cloud_calls: 2
