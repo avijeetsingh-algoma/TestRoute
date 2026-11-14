@@ -1,0 +1,45 @@
+# config/pricing.yaml
+# Cost and energy assumptions used by src/testroute/cost.py.
+#
+# Implements: spec Section 9.6, FB7 (routing trade-off needs cost numbers),
+# FB10 (local compute is not free).
+#
+# ALL VALUES ARE ROUGH. Cloud prices are list prices copied by hand and may
+# change; the local energy figure is an estimate from an assumed constant
+# laptop power draw, not a measurement. The report must not claim a lower
+# total economic cost for the local model from these numbers (FB10).
+
+currency: USD
+
+cloud:
+  # Prices in USD per one million tokens for the model in models.yaml cloud.
+  # "list" is the standard rate. Input tokens are split by DeepSeek into
+  # context cache hits and misses, which are billed differently.
+  list:
+    input_cache_miss_per_million: 0.30
+    input_cache_hit_per_million: 0.006
+    output_per_million: 1.20
+  # Off-peak rates applied when a call falls outside the peak window below:
+  # half of the list rates.
+  off_peak:
+    input_cache_miss_per_million: 0.15
+    input_cache_hit_per_million: 0.003
+    output_per_million: 0.60
+  # Peak window used to set the per call "peak" flag (spec Section 7) and to
+  # choose list or off-peak rates for the time-of-day cost estimate.
+  # A call is "peak" when its UTC start hour is in peak_hours_utc AND its UTC
+  # weekday (0 = Monday ... 6 = Sunday) is in peak_weekdays_utc.
+  # Window: 01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday; each
+  # listed hour covers its whole hour, so 3 means 03:00 to 03:59 and 10:00 is
+  # already off-peak. All other times, including weekends, are off-peak.
+  # Chinese public holidays are NOT modeled: a call on such a weekday inside
+  # the window is still counted as peak.
+  peak_hours_utc: [1, 2, 3, 6, 7, 8, 9]
+  peak_weekdays_utc: [0, 1, 2, 3, 4]
+
+local:
+  # Assumed average whole-laptop power draw in watts while the local model
+  # runs. Rough figure for a gaming laptop with a discrete GPU under load.
+  assumed_laptop_power_watts: 90
+  # Assumed electricity price in USD per kWh. Rough residential figure.
+  electricity_price_per_kwh: 0.15
