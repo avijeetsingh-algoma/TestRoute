@@ -1,0 +1,243 @@
+{
+  "function_id": "HumanEval_157",
+  "group": "main",
+  "inputs_total": 211,
+  "inputs_usable": 211,
+  "original_timeouts": [],
+  "mutants": {
+    "RET_0001": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.133
+    },
+    "AOR_0002": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.134
+    },
+    "AOR_0003": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.135
+    },
+    "COR_0004": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.135
+    },
+    "ROR_0005": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 1,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.135
+    },
+    "AOR_0006": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.135
+    },
+    "AOR_0007": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.134
+    },
+    "AOR_0008": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.133
+    },
+    "AOR_0009": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.134
+    },
+    "AOR_0010": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 2,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.133
+    },
+    "AOR_0011": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 9,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.133
+    },
+    "AOR_0012": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.133
+    },
+    "ROR_0013": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 1,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.139
+    },
+    "AOR_0014": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.132
+    },
+    "AOR_0015": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.131
+    },
+    "AOR_0016": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.131
+    },
+    "AOR_0017": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.137
+    },
+    "AOR_0018": {
+      "label": "NO_DIFF",
+      "inputs_compared": 211,
+      "first_difference": null,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.132
+    },
+    "AOR_0019": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.131
+    },
+    "AOR_0020": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.13
+    },
+    "ROR_0021": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.13
+    },
+    "AOR_0022": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.13
+    },
+    "AOR_0023": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.131
+    },
+    "AOR_0024": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.127
+    },
+    "AOR_0025": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.101
+    },
+    "AOR_0026": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 211,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.103
+    }
+  }
+}

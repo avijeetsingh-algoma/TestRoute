@@ -1,0 +1,210 @@
+{
+  "function_id": "HumanEval_55",
+  "group": "main",
+  "inputs_total": 50,
+  "inputs_usable": 30,
+  "original_timeouts": [
+    14,
+    15,
+    18,
+    19,
+    20,
+    22,
+    23,
+    25,
+    27,
+    28,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    42,
+    43,
+    48,
+    49
+  ],
+  "mutants": {
+    "ROR_0001": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.112
+    },
+    "CON_0002": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.123
+    },
+    "CON_0003": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.122
+    },
+    "RET_0004": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.115
+    },
+    "CON_0005": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.532
+    },
+    "CON_0006": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.532
+    },
+    "ROR_0007": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.113
+    },
+    "CON_0008": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.125
+    },
+    "CON_0009": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.117
+    },
+    "RET_0010": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.105
+    },
+    "CON_0011": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.546
+    },
+    "CON_0012": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.54
+    },
+    "RET_0013": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.104
+    },
+    "AOR_0014": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.54
+    },
+    "AOR_0015": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.111
+    },
+    "CON_0016": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.114
+    },
+    "CON_0017": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.493
+    },
+    "AOR_0018": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.11
+    },
+    "CON_0019": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 16,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 31,
+      "equal_exceptions": 0,
+      "seconds": 21.503
+    },
+    "CON_0020": {
+      "label": "DIFF_OUTPUT",
+      "inputs_compared": 30,
+      "first_difference": 0,
+      "timeouts": 0,
+      "skipped": 0,
+      "equal_exceptions": 0,
+      "seconds": 0.108
+    }
+  }
+}
